@@ -1,0 +1,13 @@
+order_id,date,country,product,quantity,price
+101,2026-01-05,Belgium,Shoes,2,89.99
+102,2026-01-12,France,Shirt,3,49.99
+103,2026-01-24,Netherlands,Jacket,1,129.99
+104,2026-02-03,Belgium,Jacket,2,129.99
+105,2026-02-14,France,Shoes,2,89.99
+106,2026-02-22,Netherlands,Shirt,4,49.99
+107,2026-03-02,Belgium,Shoes,3,89.99
+108,2026-03-11,France,Jacket,2,129.99
+109,2026-03-25,Netherlands,Shoes,1,89.99
+110,2026-04-04,Belgium,Shirt,5,49.99
+111,2026-04-16,France,Shoes,3,89.99
+112,2026-04-28,Netherlands,Jacket,2,129.99
