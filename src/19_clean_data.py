@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from cleaning import clean_sales_data
+
 
 input_path = Path("data/raw/sales_dirty.csv")
 output_path = Path("data/processed/cleaned_sales.csv")
@@ -14,24 +16,7 @@ output_path = Path("data/processed/cleaned_sales.csv")
 df = pd.read_csv(input_path)
 print(f"Rijen vóór cleaning: {len(df)}")
 
-# Maak categorische tekstwaarden consistent.
-df["country"] = df["country"].str.strip().str.lower().str.title()
-
-# Verwijder exacte dubbele rijen.
-df = df.drop_duplicates()
-
-# Zet Europese komma's om en maak ongeldige getallen ontbrekend (NaN).
-df["price"] = pd.to_numeric(
-    df["price"].str.replace(",", ".", regex=False),
-    errors="coerce",
-)
-df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
-
-# Een order zonder prijs of aantal kan geen betrouwbare omzet krijgen.
-df = df.dropna(subset=["price", "quantity"])
-df["quantity"] = df["quantity"].astype(int)
-
-df["revenue"] = df["quantity"] * df["price"]
+df = clean_sales_data(df)
 
 output_path.parent.mkdir(parents=True, exist_ok=True)
 df.to_csv(output_path, index=False)
