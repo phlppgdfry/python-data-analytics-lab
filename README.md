@@ -88,7 +88,8 @@ python-data-analytics-lab/
 | 5.1 | Eerste Matplotlib-lijngrafiek | Klaar |
 | 5.2 | Staafgrafiek per categorie | Klaar |
 | 6.1 | Eerste interactieve Plotly-grafiek | Klaar |
-| 6.2 | Interactieve omzettrend | Gepland |
+| 6.2 | Interactieve omzettrend | Klaar |
+| 8.1 | Eerste Streamlit-dashboard | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
