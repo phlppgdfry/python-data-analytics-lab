@@ -1,106 +1,139 @@
 # Python Data Analytics Lab
 
-Een groeiend end-to-end data-analyseproject. We leren telkens één concept,
-oefenen het klein, passen het toe in deze repository en leggen het vast met Git.
+[![Tests](https://github.com/phlppgdfry/python-data-analytics-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/phlppgdfry/python-data-analytics-lab/actions/workflows/tests.yml)
 
-## Huidige fase: 0 — Python-basis
+Een end-to-end sales-analyticsproject dat tegelijk als leerlab en
+portfolio-project dient. De repository toont hoe ruwe verkoopdata wordt
+opgeschoond, geanalyseerd, gevisualiseerd en gepresenteerd in een dashboard.
 
-We beginnen met precies de Python die je voor data-analyse nodig hebt:
+## Wat dit project doet
 
-- variabelen en basistypes
-- strings, lists en dictionaries
-- voorwaarden en lussen
-- functies, imports en bestanden
-- virtual environments en packages
+\`\`\`text
+CSV-data
+    ↓
+Pandas: cleaning en transformatie
+    ↓
+KPI's en zakelijke analyses
+    ├── Matplotlib: statische PNG-rapporten
+    ├── Plotly: interactieve HTML-grafieken
+    └── Streamlit: filterbaar dashboard
 
-Daarna voegen we stap voor stap NumPy, Pandas, data cleaning, analyses,
-visualisaties, SQL en een dashboard toe.
+PostgreSQL
+    ↓ SQL-query
+Pandas DataFrame
+\`\`\`
 
-## Zo werken we
+De analyses beantwoorden onder meer:
 
-```text
-CONCEPT → theorie → mini-oefening → toepassen in het lab → Git-commit
-```
+- Wat is de totale omzet, het aantal orders en de gemiddelde orderwaarde?
+- Hoe evolueert omzet per maand?
+- Welk land en product levert de meeste omzet op?
+- Hoe maken we rommelige brondata betrouwbaar?
 
-Je hoeft niets vooraf uit het hoofd te leren. Bij elke stap leggen we eerst uit
-wat het is, waarom het bestaat en wanneer je het gebruikt.
+## Dashboard starten
 
-## Lokaal starten
-
-```bash
+\`\`\`bash
 python3 -m venv .venv
 source .venv/bin/activate
-python src/01_python_basics.py
-```
+python -m pip install -r requirements.txt
+streamlit run dashboard/app.py
+\`\`\`
 
-Op Windows activeer je de omgeving met:
+Open daarna de URL die Streamlit toont, meestal
+\`http://localhost:8501\`.
 
-```powershell
-.venv\Scripts\Activate.ps1
-```
+Het dashboard bevat:
 
-## Eerste les — 0.1: variabelen, getallen en functies
+- KPI-kaarten voor omzet, orders, landen en gemiddelde orderwaarde;
+- een filter op land;
+- interactieve omzettrend per maand;
+- interactieve omzet per product;
+- een tabel met de onderliggende orders.
 
-Open `src/01_python_basics.py` en voer het bestand uit. Het laat zien hoe je
-waarden in variabelen bewaart en omzet berekent met een functie.
+## Analyses en grafieken uitvoeren
 
-De mini-oefening is: voeg zelf een product toe door een prijs, hoeveelheid en
-berekende omzet te maken.
+\`\`\`bash
+# Reinig de bewust rommelige oefendata.
+python src/19_clean_data.py
 
-## Projectstructuur (vandaag)
+# Bereken KPI's en maandelijkse omzet.
+python src/21_kpis.py
+python src/23_analyze_multiple_months.py
 
-```text
+# Maak statische PNG-grafieken.
+python visualizations/matplotlib_monthly_revenue.py
+python visualizations/matplotlib_revenue_by_product.py
+
+# Maak interactieve HTML-grafieken.
+python visualizations/plotly_monthly_revenue.py
+python visualizations/plotly_revenue_by_product.py
+\`\`\`
+
+Gegenereerde grafieken komen in \`reports/charts/\`. Die staan bewust niet in
+Git: de scripts kunnen ze altijd opnieuw maken.
+
+## PostgreSQL-lab
+
+Wanneer PostgreSQL lokaal draait, maak je de oefendatabase en laad je de
+analyse-data in:
+
+\`\`\`bash
+createdb -h 127.0.0.1 analytics_lab
+psql -h 127.0.0.1 -d analytics_lab -f sql/schema.sql
+psql -h 127.0.0.1 -d analytics_lab -f sql/import_sales.sql
+psql -h 127.0.0.1 -d analytics_lab -f sql/queries.sql
+python src/24_read_postgres.py
+\`\`\`
+
+Dit demonstreert de bedrijfsflow:
+
+\`\`\`text
+CSV → PostgreSQL → SQL → Pandas → analyse
+\`\`\`
+
+## Tests
+
+\`\`\`bash
+pytest
+\`\`\`
+
+De test controleert dat de cleaning-pipeline ongeldige en dubbele orders
+verwijdert en de verwachte omzet behoudt. GitHub Actions voert dezelfde test
+automatisch uit bij elke push en pull request.
+
+## Projectstructuur
+
+\`\`\`text
 python-data-analytics-lab/
-├── data/       # toekomstige ruwe en verwerkte gegevens
-├── src/        # Python-code en kleine lessen
-├── tests/      # automatische controles, later toegevoegd
-├── README.md
-└── requirements.txt
-```
+├── data/raw/              # schone, rommelige en analyse-CSV's
+├── dashboard/app.py       # Streamlit-dashboard
+├── sql/                   # schema, import en zakelijke SQL-queries
+├── src/                   # leerlessen, cleaning en analyses
+├── tests/                 # pytest-controles
+├── visualizations/        # Matplotlib- en Plotly-scripts
+├── .github/workflows/     # automatische GitHub-testcontrole
+├── requirements.txt
+└── README.md
+\`\`\`
 
-## Leerlog
+## Vaardigheden die deze repo bewijst
 
-| Stap | Onderwerp | Status |
-| --- | --- | --- |
-| 0.1 | Variabelen, getallen en functies | Klaar |
-| 0.2 | Strings, lists en dictionaries | Klaar |
-| 0.3a | Voorwaarden (`if` / `else`) | Klaar |
-| 0.3b | Lussen (`for`) | Klaar |
-| 0.4a | Imports en herbruikbare functies | Klaar |
-| 0.4b | Bestanden lezen en schrijven | Klaar |
-| 0.4c | Fouten afhandelen | Klaar |
-| 1.1 | NumPy-arrays en vectorization | Klaar |
-| 1.2 | NumPy-basisstatistiek | Klaar |
-| 1.3 | Indexing, slicing en filtering | Klaar |
-| 2.1 | Pandas en DataFrames | Klaar |
-| 2.2 | CSV-bestanden inlezen | Klaar |
-| 2.3 | Kolommen berekenen en selecteren | Klaar |
-| 2.4 | Rijen filteren | Klaar |
-| 2.5 | Groeperen en samenvatten met `groupby` | Klaar |
-| 2.6 | Zakelijke analyse per product | Klaar |
-| 3.1 | Datakwaliteit inspecteren | Klaar |
-| 3.2 | Tekstwaarden normaliseren | Klaar |
-| 3.3 | Duplicaten, missende waarden en datatypes corrigeren | Klaar |
-| 3.4 | Datums transformeren | Klaar |
-| 4.1 | Kern-KPI's berekenen | Klaar |
-| 4.2 | Omzet per maand analyseren | Klaar |
-| 4.3 | Analyse met meerdere maanden | Klaar |
-| 5.1 | Eerste Matplotlib-lijngrafiek | Klaar |
-| 5.2 | Staafgrafiek per categorie | Klaar |
-| 6.1 | Eerste interactieve Plotly-grafiek | Klaar |
-| 6.2 | Interactieve omzettrend | Klaar |
-| 7.1 | PostgreSQL-schema maken | Klaar |
-| 7.2 | Zakelijke SQL-queries | Klaar |
-| 7.3 | CSV-data in PostgreSQL laden | Klaar |
-| 7.4 | PostgreSQL-data in Pandas laden | Klaar |
-| 9.1 | Automatische tests voor analyses | Klaar |
-| 9.2 | GitHub Actions testcontrole | Klaar |
-| 8.1 | Eerste Streamlit-dashboard | Klaar |
-| 8.2 | Dashboardfilters en KPI's | Klaar |
-| 2 | Pandas en CSV | Gepland |
-| 3 | Data cleaning | Gepland |
-| 4 | Zakelijke analyse en KPI's | Gepland |
-| 5 | Matplotlib | Gepland |
-| 6 | Plotly | Gepland |
-| 7 | PostgreSQL en SQL | Gepland |
-| 8 | Streamlit-dashboard | Gepland |
+- Python, functies, foutafhandeling en projectstructuur;
+- NumPy en basisstatistiek;
+- Pandas: CSV inlezen, filtering, \`groupby\`, cleaning en datums;
+- zakelijke KPI-analyse;
+- Matplotlib en Plotly;
+- PostgreSQL, SQL en Pandas-databaseconnecties;
+- Streamlit-dashboards;
+- pytest, Git en GitHub Actions.
+
+## Leerroute
+
+De repository is stap voor stap opgebouwd:
+
+\`\`\`text
+concept → theorie → kleine oefening → toepassen → test → Git-commit
+\`\`\`
+
+De nummering in \`src/\` laat de volledige leergeschiedenis zien, van
+\`01_python_basics.py\` tot en met de PostgreSQL-naar-Pandas-flow.
