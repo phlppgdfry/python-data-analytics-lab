@@ -1,3 +1,4 @@
 # Dependencies komen erbij wanneer we ze in een les echt nodig hebben.
-# Fase 1: numpy
+numpy>=2.0
+
 # Fase 2: pandas

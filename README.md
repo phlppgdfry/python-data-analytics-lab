@@ -69,7 +69,9 @@ python-data-analytics-lab/
 | 0.4a | Imports en herbruikbare functies | Klaar |
 | 0.4b | Bestanden lezen en schrijven | Klaar |
 | 0.4c | Fouten afhandelen | Klaar |
-| 1 | NumPy en statistiek | Gepland |
+| 1.1 | NumPy-arrays en vectorization | Klaar |
+| 1.2 | NumPy-basisstatistiek | Klaar |
+| 1.3 | Indexing, slicing en filtering | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
