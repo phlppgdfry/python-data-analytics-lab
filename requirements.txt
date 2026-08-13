@@ -1,3 +1,4 @@
 # Dependencies komen erbij wanneer we ze in een les echt nodig hebben.
 numpy>=2.0
 pandas>=2.2
+matplotlib>=3.9
