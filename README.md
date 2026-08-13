@@ -1,139 +1,108 @@
 # Python Data Analytics Lab
 
 [![Tests](https://github.com/phlppgdfry/python-data-analytics-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/phlppgdfry/python-data-analytics-lab/actions/workflows/tests.yml)
+[![Status](https://img.shields.io/badge/status-learning%20companion-2563eb)](https://github.com/phlppgdfry/python-data-analytics-lab)
+[![Python](https://img.shields.io/badge/Python-learning%20path-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-data%20analysis-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-SQL%20practice-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-Een end-to-end sales-analyticsproject dat tegelijk als leerlab en
-portfolio-project dient. De repository toont hoe ruwe verkoopdata wordt
-opgeschoond, geanalyseerd, gevisualiseerd en gepresenteerd in een dashboard.
+> **Learning companion repository.** For the finished, deployed portfolio application, see [Sales Analytics Project](https://github.com/phlppgdfry/python-data-analytics-project) and its [live dashboard](https://sales-analytics-phlppgdfry.streamlit.app/).
 
-## Wat dit project doet
+This repository is the hands-on learning path behind the larger portfolio app. It progresses from small Python exercises to NumPy, Pandas, data cleaning, business analysis, visualisation, SQL and PostgreSQL. Each numbered script is intentionally small enough to study and run independently.
 
-\`\`\`text
-CSV-data
+```text
+Concept → explanation → small exercise → apply it to sales data → test → Git commit
+```
+
+## What you learn
+
+```text
+CSV data
     ↓
-Pandas: cleaning en transformatie
+Pandas: loading, filtering, groupby, cleaning and dates
     ↓
-KPI's en zakelijke analyses
-    ├── Matplotlib: statische PNG-rapporten
-    ├── Plotly: interactieve HTML-grafieken
-    └── Streamlit: filterbaar dashboard
+Business KPIs and statistics
+    ├── Matplotlib: static PNG reports
+    ├── Plotly: interactive HTML charts
+    └── Streamlit: filterable dashboard
 
 PostgreSQL
-    ↓ SQL-query
-Pandas DataFrame
-\`\`\`
+    ↓ SQL query
+Pandas DataFrame → analysis
+```
 
-De analyses beantwoorden onder meer:
+| Area | Lessons | Evidence in this repo |
+| --- | --- | --- |
+| Python foundations | 01–07 | variables, collections, conditions, loops, functions, files and errors |
+| NumPy and statistics | 08–10 | arrays, statistics and filtering |
+| Pandas basics | 11–16 | DataFrames, CSV, calculated columns, filters and `groupby` |
+| Data quality | 17–20 | inspecting dirty data, normalising text, cleaning and dates |
+| Business analysis | 21–23 | KPIs and monthly revenue analysis |
+| SQL and PostgreSQL | 24 | SQL schema, import, queries and reading results in Pandas |
 
-- Wat is de totale omzet, het aantal orders en de gemiddelde orderwaarde?
-- Hoe evolueert omzet per maand?
-- Welk land en product levert de meeste omzet op?
-- Hoe maken we rommelige brondata betrouwbaar?
+## Quick start
 
-## Dashboard starten
+```bash
+git clone https://github.com/phlppgdfry/python-data-analytics-lab.git
+cd python-data-analytics-lab
 
-\`\`\`bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-streamlit run dashboard/app.py
-\`\`\`
 
-Open daarna de URL die Streamlit toont, meestal
-\`http://localhost:8501\`.
-
-Het dashboard bevat:
-
-- KPI-kaarten voor omzet, orders, landen en gemiddelde orderwaarde;
-- een filter op land;
-- interactieve omzettrend per maand;
-- interactieve omzet per product;
-- een tabel met de onderliggende orders.
-
-## Analyses en grafieken uitvoeren
-
-\`\`\`bash
-# Reinig de bewust rommelige oefendata.
+python src/01_python_basics.py
 python src/19_clean_data.py
-
-# Bereken KPI's en maandelijkse omzet.
 python src/21_kpis.py
-python src/23_analyze_multiple_months.py
+streamlit run dashboard/app.py
+```
 
-# Maak statische PNG-grafieken.
+Open the local URL shown by Streamlit, usually `http://localhost:8501`.
+
+## Visualisation exercises
+
+```bash
+# Static Matplotlib charts
 python visualizations/matplotlib_monthly_revenue.py
 python visualizations/matplotlib_revenue_by_product.py
 
-# Maak interactieve HTML-grafieken.
+# Interactive Plotly charts
 python visualizations/plotly_monthly_revenue.py
 python visualizations/plotly_revenue_by_product.py
-\`\`\`
+```
 
-Gegenereerde grafieken komen in \`reports/charts/\`. Die staan bewust niet in
-Git: de scripts kunnen ze altijd opnieuw maken.
+Generated reports appear in `reports/charts/` and are intentionally excluded from Git because the scripts reproduce them at any time.
 
-## PostgreSQL-lab
+## PostgreSQL lab
 
-Wanneer PostgreSQL lokaal draait, maak je de oefendatabase en laad je de
-analyse-data in:
+When PostgreSQL is installed locally, this lab demonstrates the company-style flow `CSV → PostgreSQL → SQL → Pandas → analysis`.
 
-\`\`\`bash
+```bash
 createdb -h 127.0.0.1 analytics_lab
 psql -h 127.0.0.1 -d analytics_lab -f sql/schema.sql
 psql -h 127.0.0.1 -d analytics_lab -f sql/import_sales.sql
 psql -h 127.0.0.1 -d analytics_lab -f sql/queries.sql
 python src/24_read_postgres.py
-\`\`\`
+```
 
-Dit demonstreert de bedrijfsflow:
+## Tests and project structure
 
-\`\`\`text
-CSV → PostgreSQL → SQL → Pandas → analyse
-\`\`\`
-
-## Tests
-
-\`\`\`bash
+```bash
 pytest
-\`\`\`
+```
 
-De test controleert dat de cleaning-pipeline ongeldige en dubbele orders
-verwijdert en de verwachte omzet behoudt. GitHub Actions voert dezelfde test
-automatisch uit bij elke push en pull request.
+GitHub Actions runs the cleaning test on every push and pull request. The repository includes raw and intentionally messy CSV files, a Streamlit dashboard, SQL scripts, numbered exercises, visualisation scripts and pytest checks.
 
-## Projectstructuur
-
-\`\`\`text
+```text
 python-data-analytics-lab/
-├── data/raw/              # schone, rommelige en analyse-CSV's
-├── dashboard/app.py       # Streamlit-dashboard
-├── sql/                   # schema, import en zakelijke SQL-queries
-├── src/                   # leerlessen, cleaning en analyses
-├── tests/                 # pytest-controles
-├── visualizations/        # Matplotlib- en Plotly-scripts
-├── .github/workflows/     # automatische GitHub-testcontrole
-├── requirements.txt
-└── README.md
-\`\`\`
+├── data/raw/              # clean, dirty and analysis CSV files
+├── dashboard/app.py       # local Streamlit dashboard
+├── sql/                   # schema, import and business SQL queries
+├── src/                   # 24 numbered lessons plus shared helpers
+├── tests/                 # pytest checks
+├── visualizations/        # Matplotlib and Plotly scripts
+└── .github/workflows/     # automated test workflow
+```
 
-## Vaardigheden die deze repo bewijst
+## Skills demonstrated
 
-- Python, functies, foutafhandeling en projectstructuur;
-- NumPy en basisstatistiek;
-- Pandas: CSV inlezen, filtering, \`groupby\`, cleaning en datums;
-- zakelijke KPI-analyse;
-- Matplotlib en Plotly;
-- PostgreSQL, SQL en Pandas-databaseconnecties;
-- Streamlit-dashboards;
-- pytest, Git en GitHub Actions.
-
-## Leerroute
-
-De repository is stap voor stap opgebouwd:
-
-\`\`\`text
-concept → theorie → kleine oefening → toepassen → test → Git-commit
-\`\`\`
-
-De nummering in \`src/\` laat de volledige leergeschiedenis zien, van
-\`01_python_basics.py\` tot en met de PostgreSQL-naar-Pandas-flow.
+`Python` · `NumPy` · `Pandas` · `data cleaning` · `business KPIs` · `Matplotlib` · `Plotly` · `Streamlit` · `PostgreSQL` · `SQL` · `pytest` · `GitHub Actions`
