@@ -86,7 +86,8 @@ python-data-analytics-lab/
 | 4.2 | Omzet per maand analyseren | Klaar |
 | 4.3 | Analyse met meerdere maanden | Klaar |
 | 5.1 | Eerste Matplotlib-lijngrafiek | Klaar |
-| 5.2 | Staafgrafiek per categorie | Gepland |
+| 5.2 | Staafgrafiek per categorie | Klaar |
+| 6.1 | Eerste interactieve Plotly-grafiek | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
