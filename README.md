@@ -66,7 +66,9 @@ python-data-analytics-lab/
 | 0.2 | Strings, lists en dictionaries | Klaar |
 | 0.3a | Voorwaarden (`if` / `else`) | Klaar |
 | 0.3b | Lussen (`for`) | Klaar |
-| 0.4 | Imports, bestanden en fouten | Gepland |
+| 0.4a | Imports en herbruikbare functies | Klaar |
+| 0.4b | Bestanden lezen en schrijven | Gepland |
+| 0.4c | Fouten afhandelen | Gepland |
 | 1 | NumPy en statistiek | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
