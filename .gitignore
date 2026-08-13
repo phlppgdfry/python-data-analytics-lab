@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# Test and notebook artefacts
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Generated project output (later)
+data/processed/
+reports/charts/
