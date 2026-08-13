@@ -89,6 +89,10 @@ python-data-analytics-lab/
 | 5.2 | Staafgrafiek per categorie | Klaar |
 | 6.1 | Eerste interactieve Plotly-grafiek | Klaar |
 | 6.2 | Interactieve omzettrend | Klaar |
+| 7.1 | PostgreSQL-schema maken | Klaar |
+| 7.2 | Zakelijke SQL-queries | Klaar |
+| 7.3 | CSV-data in PostgreSQL laden | Klaar |
+| 7.4 | PostgreSQL-data in Pandas laden | Gepland |
 | 8.1 | Eerste Streamlit-dashboard | Klaar |
 | 8.2 | Dashboardfilters en KPI's | Klaar |
 | 2 | Pandas en CSV | Gepland |
