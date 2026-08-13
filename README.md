@@ -79,7 +79,9 @@ python-data-analytics-lab/
 | 2.5 | Groeperen en samenvatten met `groupby` | Klaar |
 | 2.6 | Zakelijke analyse per product | Klaar |
 | 3.1 | Datakwaliteit inspecteren | Klaar |
-| 3.2 | Tekstwaarden normaliseren | Gepland |
+| 3.2 | Tekstwaarden normaliseren | Klaar |
+| 3.3 | Duplicaten, missende waarden en datatypes corrigeren | Klaar |
+| 3.4 | Datums transformeren | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
