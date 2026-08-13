@@ -82,7 +82,8 @@ python-data-analytics-lab/
 | 3.2 | Tekstwaarden normaliseren | Klaar |
 | 3.3 | Duplicaten, missende waarden en datatypes corrigeren | Klaar |
 | 3.4 | Datums transformeren | Klaar |
-| 4.1 | Kern-KPI's berekenen | Gepland |
+| 4.1 | Kern-KPI's berekenen | Klaar |
+| 4.2 | Omzet per maand analyseren | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
