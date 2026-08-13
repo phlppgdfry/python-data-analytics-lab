@@ -72,7 +72,9 @@ python-data-analytics-lab/
 | 1.1 | NumPy-arrays en vectorization | Klaar |
 | 1.2 | NumPy-basisstatistiek | Klaar |
 | 1.3 | Indexing, slicing en filtering | Klaar |
-| 2.1 | Pandas en DataFrames | Gepland |
+| 2.1 | Pandas en DataFrames | Klaar |
+| 2.2 | CSV-bestanden inlezen | Klaar |
+| 2.3 | Kolommen berekenen en selecteren | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
