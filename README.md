@@ -76,7 +76,7 @@ python-data-analytics-lab/
 | 2.2 | CSV-bestanden inlezen | Klaar |
 | 2.3 | Kolommen berekenen en selecteren | Klaar |
 | 2.4 | Rijen filteren | Klaar |
-| 2.5 | Groeperen en samenvatten met `groupby` | Gepland |
+| 2.5 | Groeperen en samenvatten met `groupby` | Klaar |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
 | 4 | Zakelijke analyse en KPI's | Gepland |
