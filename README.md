@@ -68,7 +68,7 @@ python-data-analytics-lab/
 | 0.3b | Lussen (`for`) | Klaar |
 | 0.4a | Imports en herbruikbare functies | Klaar |
 | 0.4b | Bestanden lezen en schrijven | Klaar |
-| 0.4c | Fouten afhandelen | Gepland |
+| 0.4c | Fouten afhandelen | Klaar |
 | 1 | NumPy en statistiek | Gepland |
 | 2 | Pandas en CSV | Gepland |
 | 3 | Data cleaning | Gepland |
