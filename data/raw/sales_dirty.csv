@@ -1,0 +1,7 @@
+order_id,date,country,product,quantity,price
+1,2026-01-05,Belgium,Shoes,2,89.99
+2,2026-01-05,belgium,Shirt,1,"49,99"
+3,2026-01-06,Belgium ,Jacket,1,129.99
+4,2026-01-07,France,Shoes,1,
+5,2026-01-08,Netherlands,Jacket,two,129.99
+1,2026-01-05,Belgium,Shoes,2,89.99
