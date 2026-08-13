@@ -62,9 +62,10 @@ python-data-analytics-lab/
 
 | Stap | Onderwerp | Status |
 | --- | --- | --- |
-| 0.1 | Variabelen, getallen en functies | Bezig |
+| 0.1 | Variabelen, getallen en functies | Klaar |
 | 0.2 | Strings, lists en dictionaries | Klaar |
-| 0.3 | Voorwaarden en lussen | Gepland |
+| 0.3a | Voorwaarden (`if` / `else`) | Klaar |
+| 0.3b | Lussen (`for`) | Klaar |
 | 0.4 | Imports, bestanden en fouten | Gepland |
 | 1 | NumPy en statistiek | Gepland |
 | 2 | Pandas en CSV | Gepland |
